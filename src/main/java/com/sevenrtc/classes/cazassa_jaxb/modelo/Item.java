@@ -45,7 +45,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "comment",
     "shipDate"
 })
-@XmlRootElement
 public class Item {
 
     @XmlElement(required = true)
