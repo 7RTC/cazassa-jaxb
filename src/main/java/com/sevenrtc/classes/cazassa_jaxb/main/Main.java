@@ -3,7 +3,7 @@ package com.sevenrtc.classes.cazassa_jaxb.main;
 import com.sevenrtc.classes.cazassa_jaxb.modelo.Item;
 import com.sevenrtc.classes.cazassa_jaxb.modelo.Items;
 import com.sevenrtc.classes.cazassa_jaxb.modelo.PurchaseOrderType;
-import com.sun.xml.internal.txw2.output.IndentingXMLStreamWriter;
+import com.sun.xml.txw2.output.IndentingXMLStreamWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -15,7 +15,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.*;
 import java.math.BigDecimal;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -61,7 +61,7 @@ public class Main {
 
     private static void escreverObjetoInteiro(PurchaseOrderType purchaseOrderType, Marshaller marshaller) throws JAXBException {
         try(FileOutputStream fos =  new FileOutputStream(new File("resultado.xml"));
-            OutputStreamWriter ows = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
+            OutputStreamWriter ows = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
             BufferedWriter bw = new BufferedWriter(ows, 4096)) {
             System.out.println("Escrevendo arquivo");
             marshaller.marshal(purchaseOrderType, bw);
